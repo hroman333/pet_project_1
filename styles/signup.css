@@ -1,0 +1,90 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.header {
+    background-color: black;
+    color: red;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.logo {
+    font-size: 24px;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.login-button,
+.signup-button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.registration-form {
+    background-color: white;
+    border: 1px solid black;
+    padding: 20px;
+    width: 50%;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.submit-button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+
+/* Стилі для посилання на логотип */
+.logo-link {
+    text-decoration: none;
+    color: red;
+}
+
+/* Стилі для посилання на профіль */
+.profile-link {
+    text-decoration: none;
+    color: red;
+    margin-right: 10px;
+}
+
+/* Стилі для кнопки Вийти */
+.logout-button {
+    background-color: black;
+}

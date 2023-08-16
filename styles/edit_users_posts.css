@@ -1,0 +1,115 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.admin-header {
+    background-color: black;
+    color: red;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.admin-logo {
+    font-size: 24px;
+}
+
+.admin-nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.admin-nav li {
+    margin-bottom: 10px;
+}
+
+.admin-nav a {
+    text-decoration: none;
+    color: red;
+    font-weight: bold;
+    display: block;
+}
+
+.admin-main {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+.users-table {
+    width: 70%; /* Ширина таблиці */
+    margin: 20px auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+.block-button,
+.info-button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.profile {
+    display: flex;
+    align-items: flex-start; /* Вирівнювання по верхній частині */
+}
+
+.post-form {
+    flex: 1; /* Займає всю залишену ширину */
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.submit-button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}

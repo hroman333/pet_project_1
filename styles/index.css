@@ -1,0 +1,122 @@
+/* Загальні стилі */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.header {
+    background-color: black;
+    color: red;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.logo {
+    font-size: 24px;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.login-button,
+.signup-button,
+.logout-button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.main {
+    width: 50%; /* Задаємо ширину 50% від вікна браузера */
+    margin: 0 auto; /* Вирівнюємо блок по центру горизонтально */
+    padding: 20px;
+}
+
+.post {
+    position: relative; /* Додаємо relative позиціонування для блоку посту */
+    border: 1px solid black;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.post-title {
+    font-size: 20px;
+    margin-top: 0;
+}
+
+.post-content {
+    font-size: 16px;
+    margin-bottom: 0;
+}
+
+.post-author {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 12px;
+    color: #777;
+}
+
+/* Стилі для посилання на логотип */
+.logo-link {
+    text-decoration: none;
+    color: red;
+}
+
+/* Стилі для посилання на профіль */
+.profile-link {
+    text-decoration: none;
+    color: red;
+    margin-right: 10px;
+}
+
+/* Стилі для кнопки Вийти */
+.logout-button {
+    background-color: black;
+}
+
+.comment-section {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+.comment-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.comment {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.comment-content {
+    font-size: 14px;
+}
+
+.comment-form {
+    margin-top: 10px;
+}
+
+.comment-input {
+    width: 100%;
+    padding: 6px;
+    margin-right: 10px;
+}
+
+.comment-button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    cursor: pointer;
+}
