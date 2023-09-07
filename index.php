@@ -4,10 +4,12 @@
     include_once "classes/general-posts.php";
     include_once "classes/comments.php";
     include_once "classes/comments-controller.php";
+    include_once "classes/users.php";
 
     $allPosts = new GeneralPosts();
     $postsData = $allPosts->getAllPosts();
 
+    $userInfo = new Users();
     $showComments = new CommentsController();
 ?>
 
@@ -44,22 +46,21 @@ include_once "header.php"
                         <p class="comment-content">
 
                             <?php
-                              $allComments =  $showComments->showAllCurrentComments($post['post_id']);
-                              foreach ($allComments as $comment)
-                              {
-                                  echo "Aвтор коментару: ";
-                                  echo $comment['user_name'];
+                            $allComments =  $showComments->showAllCurrentComments($post['post_id']);
+                            foreach ($allComments as $comment)
+                            {
+                            echo "Aвтор коментару: ";
+                            echo $comment['user_name'];
                             ?>
-                            <h4> Коментар</h4>
+                        <h4> Коментар</h4>
 
-                            <?php
-                                 echo $comment['comment'];
-                                 echo '<br>';
-                                 echo '___________';
-                                 echo '<br>';
-                                 echo '<br>';
-                            }
-                            ?>
+                        <?php
+                        echo $comment['comment'];
+                        echo '<br>';
+                        echo '<br>';
+                        echo '<br>';
+                        }
+                        ?>
 
                         </p>
                     </div>
@@ -69,17 +70,31 @@ include_once "header.php"
                         <input type="hidden" name="user_name" value="<?php
                         if (isset($_SESSION["username"]))
                         {
+                            $banCheck = $userInfo->getBanInfo($_SESSION["username"]);
                             echo  $_SESSION["username"];
                         }
                         ?>">
                         <input type="text" name="comment" placeholder="Ваш коментар" class="comment-input">
-                        <button type="submit" class="comment-button">Відправити коментар</button>
+
+                        <?php
+                            if (isset($_SESSION["username"]))
+                            {
+                                if ($banCheck["ban_tougle"] == 0)
+                                {
+                                    echo '<button type="submit" class="comment-button">Відправити коментар</button>';
+                                }
+                            else
+                                {
+                                    echo 'Для відправки коментарів зараєструйтесь або авторизуйтесь';
+                                }
+                            }
+                        ?>
                     </form>
                 </div>
             </div>
-        <br>
-        <br>
-        <br>
+            <br>
+            <br>
+            <br>
         <?php endforeach; ?>
     </div>
 

@@ -6,8 +6,6 @@
     $users = new Users();
     $allUsers = $users->getAllUsers();
     ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,18 +28,39 @@
                 <th>Username</th>
                 <th>Дії</th>
             </tr>
-            <?php
-            foreach ($allUsers as $user) {
-                echo '<tr>';
-                echo '<td>' . $user["user_id"] . '</td>';
-                echo '<td>' . $user["username"] . '</td>';
-                echo '<td>';
-                echo '<button class="block-button">Заблокувати</button>';
-                echo '<button class="info-button">Інформація</button>';
-                echo '</td>';
-                echo '</tr>';
+            <?php foreach ($allUsers as $user): ?>
+                <tr>
+                    <td><?php echo $user["user_id"]; ?></td>
+                    <td><?php echo $user["username"]; ?></td>
+                    <td>
+                        <?php
+                            $banCheck = $users->getBanInfo($user["username"]);
+
+                            if ($banCheck["ban_tougle"] == 1 )
+                            { ?>
+                                <form action="../vendor/unblock.php" method="post" class="post-actions">
+                                    <input type="hidden" name="user_id" value="<?php echo $user["user_id"]; ?>">
+                                    <button class="block-button">Розблокувати</button>
+                                </form>
+                            <?php
+                            } else
+                            { ?>
+                                <form action="../vendor/block_users.php" method="post" class="post-actions">
+                                    <input type="hidden" name="user_id" value="<?php echo $user["user_id"]; ?>">
+                                    <button class="block-button">Заблокувати</button>
+                                </form>
+                            <?php }
+                        ?>
+                    </td>
+                </tr>
+            <?php endforeach;
+
+            if (isset($_SESSION["success"])) {
+                echo $_SESSION["success"];
             }
+            unset($_SESSION["success"]);
             ?>
+
         </table>
     </div>
 </main>

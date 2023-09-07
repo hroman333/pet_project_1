@@ -12,7 +12,16 @@
 
 <?php
     session_start();
+    include_once "classes/dbc.php";
+    include_once "classes/general-posts.php";
+    $user_name = $_SESSION["username"];
+    $currentPosts = new GeneralPosts();
+    $waitedPostsList = $currentPosts->getAllWaitedPosts($user_name);
+
+
     include_once "header.php";
+
+
 ?>
 
 <main class="main">
@@ -21,6 +30,7 @@
             <ul>
                 <li><a href="my_posts.php">Мої пости</a></li>
                 <li><a href="profile.php">Створити пост</a></li>
+                <li><a href="waited_posts.php">Пости очікуючи підтвердження : <?php $count = count($waitedPostsList); echo $count; ?></a></li>
             </ul>
         </div>
         <div class="post-form">

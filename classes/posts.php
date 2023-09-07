@@ -8,7 +8,7 @@
             if (!$stmt->execute(array($uid, $title, $text))) {
                 header("location: ../profile.php");
                 session_start();
-                    $_SESSION["success"] = "Успіше додавання посту";
+                $_SESSION["success"] = "Успішне додавання посту";
                 exit();
             }
             $stmt = null;

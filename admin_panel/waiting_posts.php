@@ -26,25 +26,40 @@ $postsData = $allPosts->getAllUsersPosts();
 ?>
 
 <main class="main">
-    <?php
-    foreach ($postsData as $posts)
-    {
-        echo '<div class="post-container">';
-        echo '<div class="post">';
-        echo '<div class="post-author"> Автор посту: ' . $posts['user_name'] . '</div>';
-        echo '<h2 class="post-title">' . $posts['title'] . '</h2>';
-        echo '<p class="post-content">' . $posts["text"] . '</p>';
-        echo '<form action="../vendor/submit_post.php" method="post" class="post-actions">';
-        echo '<input type="hidden" name="user_name" value="' . $posts['user_name'] . '">';
-        echo '<input type="hidden" name="title" value="' . $posts['title'] . '">';
-        echo '<input type="hidden" name="text" value="' . $posts['text'] . '">';
-        echo '<input type="hidden" name="id" value="' . $posts['post_id'] . '">';
-        echo '<button type="submit" class="edit-button">Підтвердити</button>';
-        echo '</form>';
-        echo '</div>';
-        echo '</div>';
-    }
+    <?php foreach ($postsData as $post): ?>
+
+        <div class="post-container">
+            <div class="post">
+                <div class="post-author"> Автор посту: <?php echo  $post['user_name'] ?> </div>
+                <h2 class="post-title"> <?php echo $post['title'] ?> </h2>
+                <p class="post-content"> <?php echo $post["text"] ?></p>
+
+                <form action="../vendor/submit_post.php" method="post" class="post-actions">
+                    <input type="hidden" name="user_name" value=" <?php echo $post['user_name'] ?>">
+                    <input type="hidden" name="title" value=" <?php echo $post['title'] ?>">
+                    <input type="hidden" name="text" value=" <?php echo $post['text'] ?> ">
+                    <input type="hidden" name="id" value=" <?php echo $post['post_id'] ?> ">
+                    <button type="submit" class="edit-button">Підтвердити</button>
+                </form>
+
+                <form action="../vendor/delete_users_post.php" method="post" class="post-actions">
+                    <input type="hidden" name="post_id" value="<?= $post['post_id'] ?>">
+                    <button type="submit" class="delete-button">Видалити</button>
+                </form>
+
+            </div>
+        </div>
+
+    <?php endforeach;
+
+        if (isset($_SESSION["success_delete"]))
+        {
+            echo $_SESSION["success_delete"];
+        }
+        unset($_SESSION["success_delete"]);
+
     ?>
+
 
 
 </main>

@@ -31,4 +31,14 @@
 
             return $usersPost;
         }
+
+        public function getAllWaitedPosts($uname) {
+
+            $stmt = $this->connect()->prepare('SELECT * FROM `users_posts` WHERE user_name = ?;');
+            $stmt->execute(array($uname));
+
+            $usersPost = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            return $usersPost;
+        }
     }

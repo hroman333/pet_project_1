@@ -36,6 +36,7 @@
                     <input type="hidden" name="user_name" value="<?= $post['user_name'] ?>">
                     <input type="hidden" name="title" value="<?= $post['title'] ?>">
                     <input type="hidden" name="text" value="<?= $post['text'] ?>">
+                    <input type="hidden" name="post_id" value="<?= $post['post_id'] ?>">
                     <button type="submit" class="edit-button">Редагувати</button>
                 </form>
 
@@ -47,6 +48,13 @@
         </div>
     <?php endforeach; ?>
 
+    <?php
+        if (isset($_SESSION["success"]))
+        {
+            echo $_SESSION["success"];
+        }
+        unset($_SESSION["success"]);
+    ?>
 </main>
 
 </body>

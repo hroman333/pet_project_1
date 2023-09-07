@@ -1,7 +1,8 @@
 <?php
  $username  = $_POST["user_name"];
- $title = $_POST["title"];;
- $text = $_POST["text"];;
+ $title = $_POST["title"];
+ $text = $_POST["text"];
+ $post_id = $_POST["post_id"];
 ?>
 
 <!doctype html>
@@ -35,9 +36,11 @@
                     <label for="content">Текст посту</label>
                     <textarea id="content" name="content" required><?php echo $text ?></textarea>
                 </div>
+                <input type="hidden" name="post_id" value="<?= $post_id ?>">
                 <button type="submit" class="submit-button">Редагувати</button>
             </form>
         </div>
     </div>
+
 </main>
 
